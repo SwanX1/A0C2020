@@ -1,19 +1,21 @@
 'use strict';
 
 const fs = require('fs/promises');
-
-fs.readFile('input.txt').then(file => {
+const readFileCallback = file => {
     const numbers = file.toString().split('\n').map(Number);
     if (process.argv[2] === 'old') {
-        for (const [ a, b ] of findFactorsOf2020Old(numbers)) {
-            console.log(`a = ${a}\nb = ${b}\na + b = 2020\na * b = ${ a * b }\n`);
-        }
+        const [ a, b ] = findFactorsOf2020Old(numbers)[0];
+        console.log(`a = ${a}\nb = ${b}\na + b = 2020\na * b = ${ a * b }\n`);
     } else {
-        for (const [ a, b, c ] of findFactorsOf2020(numbers)) {
-            console.log(`a = ${a}\nb = ${b}\nc = ${c}\na + b + c = 2020\na * b * c = ${ a * b * c }\n`);
-        }
+        const [ a, b, c ] = findFactorsOf2020(numbers)[0];
+        console.log(`a = ${a}\nb = ${b}\nc = ${c}\na + b + c = 2020\na * b * c = ${ a * b * c }\n`);
     }
-}).catch(console.error);
+};
+fs.lstat('input.txt').then(() => {
+    fs.readFile('input.txt').then(readFileCallback).catch(console.error);
+}).catch(() => {
+    fs.readFile('Day1/input.txt').then(readFileCallback).catch(console.error);
+});
 
 function findFactorsOf2020Old(numberArray) {
     const factors = [];

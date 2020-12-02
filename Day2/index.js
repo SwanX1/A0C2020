@@ -61,13 +61,18 @@ function parseStringToPassword(input) {
     return new PasswordInstance(new PasswordRule(splitInput[0], passwordValidationType), splitInput[1]);
 }
 
-let validCount = 0;
-fs.readFile('input.txt').then(file => {
+const readFileCallback = file => {
     let PasswordsAndRules = file.toString().split('\n');
     PasswordsAndRules.forEach(pnr => {
         if (parseStringToPassword(pnr).valid) validCount++;
     });
 
-    console.log(validCount);
+    console.log('Valid passwords:', validCount);
     
-}).catch(console.error);
+};
+let validCount = 0;
+fs.lstat('input.txt').then(() => {
+    fs.readFile('input.txt').then(readFileCallback).catch(console.error);
+}).catch(() => {
+    fs.readFile('Day2/input.txt').then(readFileCallback).catch(console.error);
+});
