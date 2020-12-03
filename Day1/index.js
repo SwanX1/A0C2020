@@ -3,7 +3,7 @@
 const fs = require('fs/promises');
 const readFileCallback = file => {
     const numbers = file.toString().split('\n').map(Number);
-    if (process.argv[2] === 'old') {
+    if (process.argv.includes('--old')) {
         const [ a, b ] = findFactorsOf2020Old(numbers)[0];
         console.log(`a = ${a}\nb = ${b}\na + b = 2020\na * b = ${ a * b }\n`);
     } else {

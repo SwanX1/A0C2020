@@ -1,10 +1,7 @@
 # Swan's Advent of Code!
 
-===
-
-To get the first part of the challenge, just run the command with the parameter `old`:
-
+To get the first part of the challenges, run the script with the --old parameter:
+_Applicable to days 1 and 2._
 ```
-$ node Day1/index.js
-$ node Day1/index.js old
+$ node . --old
 ```

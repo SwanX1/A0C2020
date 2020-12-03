@@ -2,7 +2,7 @@
 
 const fs = require("fs/promises");
 
-let passwordValidationType = process.argv[2] === 'old' ? 0 : 1;
+let passwordValidationType = process.argv.includes('--old') ? 0 : 1;
 
 class PasswordRule {
     constructor(rule, type) {
