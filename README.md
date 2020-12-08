@@ -2,7 +2,7 @@
 
 To get the first part of the challenges, run the script with the --old parameter:
 
-_Applicable to days 1, 2, 4, 6 and 7._
+_Applicable to days 1, 2, 4, 6, 7 and 8._
 ```
 $ node . --old
 ```
