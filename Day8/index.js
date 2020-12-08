@@ -1,9 +1,6 @@
 'use strict';
 
-const { timeStamp } = require('console');
 const fs = require('fs/promises');
-
-
 
 function executeOperations(operations) {
     let completedOperations = [];
@@ -58,5 +55,5 @@ const readFileCallback = file => {
 fs.lstat('input.txt').then(() => {
     fs.readFile('input.txt').then(readFileCallback).catch(console.error);
 }).catch(() => {
-    fs.readFile('Day5/input.txt').then(readFileCallback).catch(console.error);
+    fs.readFile('Day8/input.txt').then(readFileCallback).catch(console.error);
 });
