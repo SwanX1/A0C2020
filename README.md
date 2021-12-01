@@ -1,5 +1,7 @@
 # Swan's Advent of Code!
 
+### See my 2021 solutions at [SwanX1/AoC2021](https://github.com/SwanX1/AoC2021)
+
 To get the first part of the challenges, run the script with the --old parameter:
 
 _Applicable to days 1, 2, 4, 6, 7 and 8._
